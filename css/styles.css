@@ -104,11 +104,28 @@ a, p, ul, h1,h2,h3 {
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.subscribebutton {
+    background-color: var(--main-brand-color);
+    color: var(--main-white-color);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: calc(24/16);
+    letter-spacing: 0.02em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 165px;
+    padding: 8px 16px;
 
-.firstbutton:hover,
-.firstbutton:focus {
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.firstbutton:hover, 
+.firstbutton:focus,
+.subscribebutton:hover,
+.subscribebutton:focus {
     background-color: var(--active-btn-color);
-} /*Тут мають бути в результаті додані тіні*/
+}
 
 
 .secondbutton {
@@ -153,19 +170,128 @@ a, p, ul, h1,h2,h3 {
 }
 
 .modal-one {
+    display: flex;
+    flex-direction: column;
     width: 408px;
-    height: 576px;
     border-radius: 4px;
     background-color: #FCFCFC;
     position: absolute;
     top: 50%;
     left: 50%;
+    padding: 72px 24px 24px 24px;
 
     transform: translate(-50%, -50%);
     z-index: 2000;
 }
 
+.modal-user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.modal-user-icon {
+    fill: var(--title-color);
+    position: absolute;
+    top: 12px;
+    left: 16px;
+}
+
+.modal-user-input:focus + svg.modal-user-icon {
+    fill: var(--main-brand-color);
+}
+
+div.section {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-user-data {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+textarea {
+    margin-bottom: 16px;
+}
+
+.modal-user-input {
+    width: 360px;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+    padding: 8px 16px 8px 38px;
+}
+
+.modal-user-label {
+    color: var(--outline-customers);
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.04em;
+}
+
+.modal-user-input:active,
+.modal-user-input:focus,
+.modal-textarea:focus,
+.modal-textarea:active {
+    border: 1px solid var(--main-brand-color);
+}
+
+input, textarea {
+    outline: none;
+}
+
+.modal-acception {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.04em;
+    color: #757575;
+    margin-bottom: 24px;
+}
+
+.chackbox-label {
+    display: flex;
+    gap: 8 px;
+}
+
+.modal-accept {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1px solid var(--title-color);
+    margin-right: 8px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z' fill='%23ffffff'/%3E%3C/svg%3E");    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 10px 10px;
+
+    transition: background-color 250ms linear;
+}
+
+.modal-accept:checked {
+    background-color: var(--active-btn-color);
+}
+
+
+.policy-acception {
+    text-decoration-line: underline;
+    color: var(--main-brand-color);
+    margin-left: 4px;
+}
+
+textarea.modal-textarea {
+    resize: none;
+    height: 120px;
+    width: 360px;
+    padding: 8px 16px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+}
 
 .close-btn {
     text-align: center;
@@ -180,7 +306,29 @@ a, p, ul, h1,h2,h3 {
     top: 24px;
 }
 
+p.modal-title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: var(--title-color);
+    margin-bottom: 14px;
+}
 
+.modal-submit-btn {
+    width: 169px;
+    height: 56px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+}
+
+::placeholder {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 133%;
+    letter-spacing: 0.04em;
+    color: rgba(117, 117, 117, 0.5);
+}
 
 
             /*Process*/
@@ -691,4 +839,52 @@ h3.work-title {
     margin-bottom: 8px;
 } 
 
+
+/* Forms */
+
+/* Footer Subscribe */
+.title-subscribe {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.02em;
+    color: var(--main-white-color);
+    margin-bottom: 16px;
+}
+
+.form-sum-footer {
+    display: flex;
+    gap: 24px;
+}
+
+.inp-email-subscr {
+    width: 264px;
+    padding: 8px 0 8px 16px;
+    background-color:var(--title-color);
+    border:  1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+
+}
+
+input.inp-email-subscr {
+    font-size: 12px;
+    line-height: 200%;
+    letter-spacing: 0.04em;
+    color: var(--main-white-color);
+}
+
+.subscr-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.icon-telegram {
+    fill: var(--main-white-color);
+}
  
